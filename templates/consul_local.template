@@ -1,0 +1,14 @@
+{
+  "data_dir": "/consul/data",
+  "log_level": "INFO",
+  "node_name": "{{ grains['host'] }}",
+  "server": true,
+  "ui": true,
+  "client_addr": "{{ grains['fqdn_ip4'][0] }}",
+  "ports": {
+    "dns": 53
+  },
+  "bind_addr": "{{ grains['fqdn_ip4'][0] }}",
+  "bootstrap_expect": 1,
+  "recursors": {{ pillar.get('consul_recursors', ['1.1.1.1']) | json }}
+}
