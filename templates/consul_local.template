@@ -10,5 +10,6 @@
   },
   "bind_addr": "{{ grains['fqdn_ip4'][0] }}",
   "bootstrap_expect": 1,
-  "recursors": {{ pillar.get('consul_recursors', ['1.1.1.1']) | json }}
+  "recursors": {{ pillar.get('consul_recursors', ['1.1.1.1']) | json }},
+  "datacenter": "{{ grains.get('datacenter', 'dc1') }}"
 }
