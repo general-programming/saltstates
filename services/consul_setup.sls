@@ -7,6 +7,7 @@
         - mode: 0644
         - source: salt://templates/consul_local.template
         - template: jinja
+        - makedirs: True
 
 /var/lib/consul:
     file.directory:
